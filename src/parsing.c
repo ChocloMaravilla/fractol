@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 19:04:30 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/05/31 20:51:41 by rmedina-         ###   ########.fr       */
+/*   Created: 2024/05/31 20:52:25 by rmedina-          #+#    #+#             */
+/*   Updated: 2024/05/31 21:22:14 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "fractol.h"
+int nbrcompare(int *str)
+{
+	int *buff;
+	int i;
+	int j;
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	lower_case_converter(char *str);
-int		checking_arg(int argc, char **argv);
-int		checking_set(char *str);
-int		ft_isalpha(int c);
-size_t	ft_strlen(const char *c);
-
-#endif
+	buff = "0123456789.";
+	while(str[i])
+	{
+		if(buff[i] == str[0])
+			return (1);
+		i++;
+	}
+	return (0);
+}
