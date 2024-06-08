@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 20:52:25 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/06/08 20:07:09 by rmedina-         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-int nbrcompare(char *str)
-{
-	char *buff;
-	int i;
-	int j;
+#include "mlx_int.h"
 
-	buff = "0123456789.";
-	i = 0;
-	while(str[i])
-	{
-		j = 0;
-		while(buff[j])
-		{
-			if(buff[j] != str[i])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
+int	mlx_destroy_display(t_xvar *xvar)
+{
+	XCloseDisplay(xvar->display);
 }

@@ -1,6 +1,6 @@
 HEADER	=	ft_prinft.h
 
-NAME	=	libftprintf.a
+NAME	=	printf.a
 
 SRCS	=	ft_putnbr_fd.c ft_putstr_fd.c ft_printf.c
 

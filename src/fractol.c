@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 19:04:10 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/06/07 19:48:03 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/06/08 19:39:33 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void lower_case_converter(char *str)
 
 int checking_arg(int argc, char **argv)
 {
-	int	i;
-	int len;
+	//int	i;
+	//int len;
 	if(argc < 2)
 		return (0);
-	len = ft_strlen(argv[1]);
-	i = 0;
+	//len = ft_strlen(argv[1]);
+	//i = 0;
 	lower_case_converter(argv[1]);
 	checking_set(argv[1]);
 	if(nbrcompare(argv[2]) && nbrcompare(argv[3]))
