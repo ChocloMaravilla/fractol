@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 19:04:30 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/06/08 20:06:37 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/06/10 20:52:58 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int			checking_arg(int argc, char **argv);
 int			checking_set(char *str);
 int			ft_isalpha(int c);
 size_t		ft_strlen(const char *c);
-int		nbrcompare(char *str);
+int			nbrcompare(char *str);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strcmp(char *s1, char *s2);
 #endif

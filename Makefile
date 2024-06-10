@@ -1,38 +1,27 @@
 NAME = fractol
-HEADER = src/fractol.h
+SRC = src/fractol.c src/parsing.c
+OBJS = $(SRC:.c=.o)
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
-SRCS = src/fractol.c\
-	   src/parsing.c
-OBJS = $(SRCS:.c=.o)
-LIB_LIBFT =  Libs/ft_libft/libft.a
-LIB_PRINTF = Libs/ft_printf/printf.a	
-
-src/%.o : src/%.c Makefile
-	$(CC) $(FLAGS) -Imlx_linux -c $< -o $@
-
-all: $(NAME)
-
-
-$(NAME): libs $(OBJS)
-	$(CC) $(FLAGS) -Lmlx_linux -Lmlx_Linux -L$(LIB_LIBFT) -L$(LIB_PRINTF) $(OBJS)\
-	   	-Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-
-libs:
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -f
+LIBFT_A = Libs/ft_libft/libft.a
+MLX_A = mlx_linux/libmlx_Linux.a
+all: makelibft makemlx $(NAME)
+makelibft:
 	make -C Libs/ft_libft
-	make -C Libs/ft_printf
-
+makemlx:
+	make -C mlx_linux
+$(NAME): $(OBJS) $(LIBFT_A) $(MLX_A)
+	${CC} $(CFLAGS) $(OBJS) $(LIBFT_A) $(MLX_A) -lXext -lX11 -lm -lz -o $(NAME)
+# -L mlx_test -I mlx_test
+%.o:%.c Makefile fractol.h
+	${CC} $(CFLAGS) -c $< -o $@
+# -Imlx_linux/mlx.h
 clean:
-	rm -f $(OBJS)
-	make -C Libs/ft_libft clean
-	make -C Libs/ft_printf clean
-
+	$(RM) $(OBJS)
+	make clean -C Libs/ft_libft
+	make clean -C mlx_linux
 fclean: clean
-	rm -f $(NAME)
-	make -C Libs/ft_libft fclean
-	make -C Libs/ft_printf fclean
-
+	$(RM) $(NAME)
 re: fclean all
-
-
-.PHONY: all clean fclean re libs
+.PHONY: all clean fclean re makelibft
