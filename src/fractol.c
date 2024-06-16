@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 19:04:10 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/06/14 21:24:37 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/06/16 03:47:15 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 
 int invalid_arg(char *arg1){
 	int i;
+	int flag;
 
-	i = 0;
 	if (!arg1 || arg1[0] == '\0')
 		return (1);
+	i = 0;
+	flag = 0;
 	while(arg1[i])
 	{
-		if((arg1[i] < '0' && arg1[i] != '.') || (arg1[i] > '9'))
+		if((arg1[i] == '.' && flag == 1) ||\
+		(arg1[i] == '.' && arg1[i + 1] == '\0'))
 			return (1);
+		if(checking_symbols(arg1[i]))
+			return (1);
+		//MODIFICAR ESTA FUNCION ESTA EN CONSTRUCCION
+		ifl()
+		if(arg1[i] == '.')
+			flag = 1;
 		i++;
 	}
 	return (0);
@@ -64,17 +73,12 @@ int checking_arg(int argc, char **argv)
 		printf("julia\n");
 		//Modificar poniendo lo que quieres que ejecute si es julia.
 	}
-		
 	else if(checking_type_of_set(argv[1]) == 2)	
 		printf("mandelbrot\n");
 		//Modificar poniendo lo que quieres que ejecute si es mandelbrot.
 	else if(checking_type_of_set(argv[1]) == 3)
 		printf("tricorn\n");
 		//Modificar poniendo lo que quieres que ejecute si es tricorn.
-	//checking_set(argv[1]);
-	//if(nbrcompare(argv[2]) && nbrcompare(argv[3]))
-	//	return (1);
-	printf("FINISH");
 	return (0);
 }
 
