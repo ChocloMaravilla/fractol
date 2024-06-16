@@ -23,21 +23,28 @@ int ft_strcmp(char *s1, char *s2)
 
 int	checking_symbols(char arg)
 {
-	if(arg < '0' && arg == '-')
-		return (0);
-	else if(arg < '0' && arg == '+')
-		return (0);
-	else if(arg < '0' && arg == '.')
+	if(arg == '-' || arg == '+'|| arg == '.')
 		return (0);
 	else if(arg >= '0' && arg <= '9')
 		return (0);
 	else 
 		return (1);
 }
-//MODIFICAR O QUITAR LO PIENSO tomorrow
-int	is_duplicate(char arg, int flag)
+
+int	checking_err(char *str)
 {
-	if((arg == '.' && flag == 1)
-		return (1);
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] == '.' && str[i - 1] == '+')
+			return (1);
+		if(str[i] == '.' && str[i - 1] == '-')
+			return (1);	
+		if(i == 0 && str[i] == '.')
+			return (1);
+		i++;
+	}
 	return (0);
 }

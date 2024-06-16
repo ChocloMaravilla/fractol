@@ -25,4 +25,5 @@ size_t			ft_strlen(const char *c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strcmp(char *s1, char *s2);
 int 			checking_symbols(char arg);
+int			checking_err(char *str);
 #endif

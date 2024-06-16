@@ -27,8 +27,8 @@ int invalid_arg(char *arg1){
 			return (1);
 		if(checking_symbols(arg1[i]))
 			return (1);
-		//MODIFICAR ESTA FUNCION ESTA EN CONSTRUCCION
-		ifl()
+		if(checking_err(arg1))
+			return (1);
 		if(arg1[i] == '.')
 			flag = 1;
 		i++;
