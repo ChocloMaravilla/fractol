@@ -1,5 +1,5 @@
 NAME = fractol
-SRC = src/fractol.c src/parsing.c
+SRC = src/fractol_main.c src/fractol_checking.c src/fractol_mlx_function.c
 OBJS = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -14,7 +14,7 @@ makemlx:
 $(NAME): $(OBJS) $(LIBFT_A) $(MLX_A)
 	${CC} $(CFLAGS) $(OBJS) $(LIBFT_A) $(MLX_A) -lXext -lX11 -lm -lz -o $(NAME)
 # -L mlx_test -I mlx_test
-%.o:%.c Makefile fractol.h
+%.o:%.c Makefile fractol_macros.h fractol_structs.h
 	${CC} $(CFLAGS) -c $< -o $@
 # -Imlx_linux/mlx.h
 clean:
