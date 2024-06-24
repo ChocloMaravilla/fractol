@@ -1,5 +1,3 @@
 *.o
-*.h*
-*.o*
 mlx_linux
 fractol
